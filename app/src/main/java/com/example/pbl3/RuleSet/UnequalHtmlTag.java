@@ -1,6 +1,6 @@
 package com.example.pbl3.RuleSet;
 import com.example.pbl3.Method.RuleBase;
-public class UnequalHtml extends RuleBase {
+public class UnequalHtmlTag extends RuleBase {
 
     private String html;
     private boolean hypothesis = false;
@@ -13,7 +13,7 @@ public class UnequalHtml extends RuleBase {
         this.hypothesis = hypothesis;
     }
 
-    public UnequalHtml(String url) {
+    public UnequalHtmlTag(String url) {
         super(url);
       //  html = getHtml();
     }

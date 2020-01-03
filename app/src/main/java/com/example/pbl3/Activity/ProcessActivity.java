@@ -84,10 +84,38 @@ public class ProcessActivity extends BaseActivity{
 
         if(evidenceAc.urlKor()){
             trueNum++;
-            reason += "url 에 한글이 들어가있습니다.\n";
+            reason += "URL에 한글이 들어가있습니다.\n";
 
         }
         count();
+
+        //보민 추가
+        if(evidenceAc.SmishingUrl()){
+            trueNum++;
+            reason += "택배 스미싱 URL일 확률이 높습니다.\n";
+
+        }
+        count();
+
+        if(evidenceAc.IPUrl()){
+            trueNum++;
+            reason+="URL내에 IP주소가 존재합니다.\n";
+        }
+        count();
+
+        if(evidenceAc.linkPossibility()){
+            trueNum++;
+            reason+="이미지 안에 악성 링크가 걸려있을 수 있습니다.\n";
+        }
+        count();
+
+        if(evidenceAc.tagExist()){
+            trueNum++;
+            reason+="HTML소스 코드 속 의심스러운 태그들이 존재합니다.\n";
+        }
+        count();
+
+
 
         // result();
 

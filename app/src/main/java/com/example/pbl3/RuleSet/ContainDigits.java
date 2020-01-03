@@ -1,6 +1,6 @@
 package com.example.pbl3.RuleSet;
 import com.example.pbl3.Method.RuleBase;
-public class containDigits extends RuleBase {
+public class ContainDigits extends RuleBase {
 
     private String url;
     private boolean hypothesis = false;
@@ -12,7 +12,7 @@ public class containDigits extends RuleBase {
         this.hypothesis = hypothesis;
     }
 
-    public containDigits(String url) {
+    public ContainDigits(String url) {
         super(url);
         this.url = url;
     }

@@ -4,13 +4,18 @@ import com.example.pbl3.RuleSet.BackSlash;
 import com.example.pbl3.RuleSet.Bitly;
 import com.example.pbl3.RuleSet.Dot;
 import com.example.pbl3.RuleSet.EvalMethod;
+import com.example.pbl3.RuleSet.HiddenTag;
+import com.example.pbl3.RuleSet.IframeTag;
 import com.example.pbl3.RuleSet.LengthOfDoc;
 import com.example.pbl3.RuleSet.LengthOfURL;
 import com.example.pbl3.RuleSet.NumOfLines;
 import com.example.pbl3.RuleSet.SuspiciousWords;
 import com.example.pbl3.RuleSet.TLD;
+import com.example.pbl3.RuleSet.UnequalHtmlTag;
 import com.example.pbl3.RuleSet.UrlKorean;
 import com.example.pbl3.RuleSet.WindowOpenMethod;
+import com.example.pbl3.RuleSet.ContainDigits;
+import com.example.pbl3.RuleSet.aTag;
 
 public class EvidenceAc {
 
@@ -25,6 +30,11 @@ public class EvidenceAc {
     private TLD tld;
     private WindowOpenMethod windowOpenMethod;
     private UrlKorean urlKorean;
+    private ContainDigits containDigits;
+    private aTag atag;
+    private IframeTag iframeTag;
+    private HiddenTag hiddenTag;
+    private UnequalHtmlTag unequalHtmlTag;
 
     public EvidenceAc(String url,String html) {
 
@@ -39,6 +49,11 @@ public class EvidenceAc {
         tld = new TLD(url);
        windowOpenMethod = new WindowOpenMethod(html);
         urlKorean = new UrlKorean(url);
+        containDigits = new ContainDigits(url);
+        atag = new aTag(html);
+        iframeTag= new IframeTag(html);
+        hiddenTag = new HiddenTag(html);
+        unequalHtmlTag = new UnequalHtmlTag(html);
 
     }
 
@@ -69,7 +84,6 @@ public class EvidenceAc {
     }
 
 
-
     public boolean javaExe(){
         if(evalMethod.isHypothesis()||windowOpenMethod.isHypothesis()){
             //위험한 java script 실행 가능성
@@ -93,6 +107,42 @@ public class EvidenceAc {
         }
         return false;
     }
+
+    // 룰체인 보민 추가
+    public boolean SmishingUrl(){
+        if(bitly.isHypothesis()&&suspiciousWords.isHypothesis()){
+            // 단축 url + '택배' 단어
+            return true;
+        }
+        return false;
+    }
+
+    public boolean IPUrl(){
+        if(dot.isHypothesis()&&containDigits.isHypothesis()){
+            // IP주소가 URL에 존재하는 경우
+            return true;
+
+        }
+        return false;
+    }
+
+    public boolean linkPossibility(){
+        if(atag.isHypothesis()&&iframeTag.isHypothesis()){
+            // iframe안에 a태그를 통한 링크 존재하는 경우
+            return  true;
+        }
+        return false;
+    }
+
+    public boolean tagExist(){
+        if(iframeTag.isHypothesis()&&hiddenTag.isHypothesis()&&unequalHtmlTag.isHypothesis()){
+            // 의심스러운 태그들이 포착된 경우
+            return true;
+        }
+        return false;
+    }
+
+
 
 }
 
