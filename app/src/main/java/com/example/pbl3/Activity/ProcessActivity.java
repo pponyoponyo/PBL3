@@ -36,7 +36,6 @@ public class ProcessActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_process);
-        inputHtml="test page";
 
         JsoupAsyncTask jsoupHttp = new JsoupAsyncTask();
         jsoupHttp.execute();
@@ -49,6 +48,7 @@ public class ProcessActivity extends BaseActivity{
         imgLoading.setAnimation(anim);
 
     }
+
     private  void check(){
         EvidenceAc evidenceAc = new EvidenceAc(inputUrl,inputHtml);
 

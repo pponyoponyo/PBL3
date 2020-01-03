@@ -43,6 +43,7 @@ public class ResultActivity extends BaseActivity {
         Intent i = getIntent();
         percent = i.getIntExtra("resultPer",0);
         reason = i.getStringExtra("resultR");
+
         txtResult.setText(percent+"%");
         txtReason.setText(reason);
 
