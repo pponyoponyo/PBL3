@@ -28,7 +28,7 @@ public class ProcessActivity extends BaseActivity{
 
     private int percent;
     private String reason = "";
-    private int total=0;
+    private int total=10;
     private int trueNum=0;
     private float temp =0;
 
