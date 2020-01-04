@@ -50,6 +50,11 @@ public class ProcessActivity extends BaseActivity{
     }
 
     private  void check(){
+
+        if(inputHtml==null){
+            inputHtml = "safe page";
+        }
+
         EvidenceAc evidenceAc = new EvidenceAc(inputUrl,inputHtml);
 
         if(evidenceAc.upperAuthority()){
@@ -82,10 +87,9 @@ public class ProcessActivity extends BaseActivity{
         }
         count();
 
-        if(evidenceAc.urlKor()){
+        if(evidenceAc.urlKor()) {
             trueNum++;
-            reason += "URL에 한글이 들어가있습니다.\n";
-
+            reason += "url 에 한글이 들어가있습니다.\n";
         }
         count();
 
@@ -93,7 +97,6 @@ public class ProcessActivity extends BaseActivity{
         if(evidenceAc.SmishingUrl()){
             trueNum++;
             reason += "택배 스미싱 URL일 확률이 높습니다.\n";
-
         }
         count();
 
@@ -115,12 +118,7 @@ public class ProcessActivity extends BaseActivity{
         }
         count();
 
-
-
-        // result();
-
-        percent = 10;
-        reason = inputHtml;
+        result();
 
         Intent i = new Intent(getBaseContext(), ResultActivity.class);
         i.putExtra("resultPer",percent);
@@ -140,7 +138,6 @@ public class ProcessActivity extends BaseActivity{
             reason = "정상적인 URL 입니다.\n";
             return;
         }
-
 
         temp = (float)trueNum/(float)total;
         percent = (int)(temp*100);
@@ -171,7 +168,7 @@ public class ProcessActivity extends BaseActivity{
         @Override
         protected void onPostExecute(Void result) {
             check();
-
         }
     }
+
 }

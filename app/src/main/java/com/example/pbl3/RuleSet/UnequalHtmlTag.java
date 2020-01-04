@@ -13,9 +13,9 @@ public class UnequalHtmlTag extends RuleBase {
         this.hypothesis = hypothesis;
     }
 
-    public UnequalHtmlTag(String url) {
-        super(url);
-      //  html = getHtml();
+    public UnequalHtmlTag(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

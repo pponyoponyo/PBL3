@@ -6,9 +6,9 @@ public class CharCodeAtMethod extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public CharCodeAtMethod(String url) {
-        super(url);
-       // html = getHtml();
+    public CharCodeAtMethod(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

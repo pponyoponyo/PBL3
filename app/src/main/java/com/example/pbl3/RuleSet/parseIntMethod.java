@@ -5,9 +5,9 @@ public class parseIntMethod extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public parseIntMethod(String url) {
-        super(url);
-       // html = getHtml();
+    public parseIntMethod(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

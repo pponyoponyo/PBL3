@@ -22,9 +22,7 @@ public class ResultActivity extends BaseActivity {
     Handler handler = new Handler() ; // Thread에서 화면에 그리기 위해 필요
     private TextView txtResult;
     private TextView txtReason;
-    private boolean compResult =false;
 
-    private int testNum=9; // 연동 전 임의로 테스트 넘버 넣음
     private int value=0;
     private ProgressBar progressBar;
     private int add=5; // 증가량, 방향
@@ -48,18 +46,19 @@ public class ResultActivity extends BaseActivity {
         txtReason.setText(reason);
 
         // 약간 수정 필요함!!
-        final ProgressBar progressBar=findViewById(R.id.progress_circular1);
+       progressBar=findViewById(R.id.progress_circular1);
 
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                while(value<= percent){
+                while(value < percent){
                     value=value+add;
-                    if(value>100 || value<0){
+
+                    if(value>100){
                         add=-add;
                         break;
-
                     }
+
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -74,9 +73,6 @@ public class ResultActivity extends BaseActivity {
             }
         });
         t.start();
-
-        // todo 리턴되는 true 개수를 progressBar.setProgress(trueNum) 해주기
-
 
         findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
             @Override

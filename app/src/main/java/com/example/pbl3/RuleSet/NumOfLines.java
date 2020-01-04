@@ -6,9 +6,9 @@ public class NumOfLines extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public NumOfLines(String url) {
-        super(url);
-       // html = getHtml();
+    public NumOfLines(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule() {

@@ -6,9 +6,9 @@ public class WindowOpenMethod extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public WindowOpenMethod(String url) {
-        super(url);
-       //u html = getHtml();
+    public WindowOpenMethod(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

@@ -2,6 +2,7 @@ package com.example.pbl3.Method;
 
 import com.example.pbl3.RuleSet.BackSlash;
 import com.example.pbl3.RuleSet.Bitly;
+import com.example.pbl3.RuleSet.ContainDigits;
 import com.example.pbl3.RuleSet.Dot;
 import com.example.pbl3.RuleSet.EvalMethod;
 import com.example.pbl3.RuleSet.HiddenTag;
@@ -14,7 +15,6 @@ import com.example.pbl3.RuleSet.TLD;
 import com.example.pbl3.RuleSet.UnequalHtmlTag;
 import com.example.pbl3.RuleSet.UrlKorean;
 import com.example.pbl3.RuleSet.WindowOpenMethod;
-import com.example.pbl3.RuleSet.ContainDigits;
 import com.example.pbl3.RuleSet.aTag;
 
 public class EvidenceAc {
@@ -41,13 +41,13 @@ public class EvidenceAc {
         backSlash = new BackSlash(url);
         bitly = new Bitly(url);
         dot=new Dot(url);
-       evalMethod = new EvalMethod(html);
-       lengthOfDoc = new LengthOfDoc(html);
+        evalMethod = new EvalMethod(html);
+        lengthOfDoc = new LengthOfDoc(html);
         lengthOfURL = new LengthOfURL(url);
         numOfLines = new NumOfLines(html);
-      suspiciousWords = new SuspiciousWords(html);
+        suspiciousWords = new SuspiciousWords(html);
         tld = new TLD(url);
-       windowOpenMethod = new WindowOpenMethod(html);
+        windowOpenMethod = new WindowOpenMethod(html);
         urlKorean = new UrlKorean(url);
         containDigits = new ContainDigits(url);
         atag = new aTag(html);
@@ -55,6 +55,22 @@ public class EvidenceAc {
         hiddenTag = new HiddenTag(html);
         unequalHtmlTag = new UnequalHtmlTag(html);
 
+        backSlash.rule();
+        bitly.rule();
+        dot.rule();
+        evalMethod.rule();
+        lengthOfDoc.rule();
+        lengthOfURL.rule();
+        numOfLines.rule();
+        suspiciousWords.rule();
+        tld.rule();
+        windowOpenMethod.rule();
+//        urlKorean.rule();
+        containDigits.rule();
+        atag.rule();
+        iframeTag.rule();
+        hiddenTag.rule();
+        unequalHtmlTag.rule();
     }
 
     public boolean upperAuthority(){
@@ -82,7 +98,6 @@ public class EvidenceAc {
         }
         return false;
     }
-
 
     public boolean javaExe(){
         if(evalMethod.isHypothesis()||windowOpenMethod.isHypothesis()){
@@ -141,8 +156,5 @@ public class EvidenceAc {
         }
         return false;
     }
-
-
-
 }
 

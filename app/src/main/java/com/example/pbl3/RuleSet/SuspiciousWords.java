@@ -6,9 +6,9 @@ public class SuspiciousWords extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public SuspiciousWords(String url) {
-        super(url);
-      //  html = getHtml();
+    public SuspiciousWords(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

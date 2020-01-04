@@ -17,7 +17,7 @@ public class LengthOfURL extends RuleBase {
         c = checkDot.toCharArray(); // 문자열을 char 배열로 설정
 
         //Length of URL (길이개수 수정함)
-        if(c.length>50){
+        if(c.length>10){
             setHypothesis(true);
         }
     }

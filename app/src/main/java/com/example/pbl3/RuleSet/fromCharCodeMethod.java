@@ -6,9 +6,9 @@ public class fromCharCodeMethod extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public fromCharCodeMethod(String url) {
-        super(url);
-       // html = getHtml();
+    public fromCharCodeMethod(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

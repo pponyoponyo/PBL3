@@ -6,9 +6,9 @@ public class LengthOfDoc extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public LengthOfDoc(String url) {
-        super(url);
-        //html = getHtml();
+    public LengthOfDoc(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

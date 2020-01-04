@@ -12,9 +12,9 @@ public class IframeTag extends RuleBase {
         this.hypothesis = hypothesis;
     }
 
-    public IframeTag(String url) {
-        super(url);
-      //  html = getHtml();
+    public IframeTag(String html) {
+        super(html);
+        this.html = html;
     }
 
 

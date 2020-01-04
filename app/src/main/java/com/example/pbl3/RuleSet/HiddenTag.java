@@ -12,9 +12,9 @@ public class HiddenTag extends RuleBase {
         this.hypothesis = hypothesis;
     }
 
-    public HiddenTag(String url) {
-        super(url);
-       // html = getHtml();
+    public HiddenTag(String html) {
+        super(html);
+        this.html = html;
     }
 
 

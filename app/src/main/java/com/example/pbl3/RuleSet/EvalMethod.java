@@ -6,9 +6,9 @@ public class EvalMethod extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public EvalMethod(String url) {
-        super(url);
-      //  html = getHtml();
+    public EvalMethod(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){

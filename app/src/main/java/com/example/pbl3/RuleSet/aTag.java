@@ -26,11 +26,8 @@ public class aTag extends RuleBase {
                     if(checkSmall[k].equals("a")){
                         setHypothesis(true);
                     }
-
                 }
-
             }
-
         }
     }
 

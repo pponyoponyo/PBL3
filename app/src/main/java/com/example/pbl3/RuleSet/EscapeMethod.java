@@ -5,9 +5,9 @@ public class EscapeMethod extends RuleBase {
     private String html;
     private boolean hypothesis = false;
 
-    public EscapeMethod(String url) {
-        super(url);
-        //html = getHtml();
+    public EscapeMethod(String html) {
+        super(html);
+        this.html = html;
     }
 
     public void rule(){
