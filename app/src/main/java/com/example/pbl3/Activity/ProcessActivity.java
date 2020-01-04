@@ -118,6 +118,10 @@ public class ProcessActivity extends BaseActivity{
         }
         count();
 
+        if(inputUrl.startsWith("https://")){
+            trueNum = 0;
+        }
+        
         result();
 
         Intent i = new Intent(getBaseContext(), ResultActivity.class);
